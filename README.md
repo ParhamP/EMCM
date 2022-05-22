@@ -41,11 +41,13 @@ The MATLAB file for this example can be found in "examples/lorenz folder".
 [x2, y2, z2] = generate_lorenz(28, 10, 8/3, [0 1 1.05], [0 30], 0.000001);
 
 %create a DENMD object
-denmd_object = DENMD();
+denmd = DENMD();
 
 % Assign the time-series to the object
-denmd_object.set_timeseries(1, y1);
-denmd_object.set_timeseries(2, y2);
+denmd.set_timeseries(1, y1, 'name', 'y1');
+denmd.set_timeseries(2, y2, 'name', 'y2');
 
-
+% Visualize the time-series from within the object
+denmd.visualize_time_series();
+<img src="https://github.com/ParhamP/DENMD/blob/main/assets/vis_time_series.png?raw=true">
 ```
