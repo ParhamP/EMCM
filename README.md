@@ -16,7 +16,7 @@ We've employed dynamical systems approaches to compile a toolbox that:
 
 ## Download
 
-1. From a command line:
+1. In the command line:
 ```
 git clone https://github.com/ParhamP/DENMD.git
 ```
@@ -32,3 +32,7 @@ addpath(genpath('AbsolutePathToToolbox'))
 ```
 
 ## Example
+
+```Matlab
+
+```

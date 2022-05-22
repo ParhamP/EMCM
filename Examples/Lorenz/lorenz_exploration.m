@@ -6,7 +6,7 @@ addpath('../../')
 %y2 = y2(1:length(y1));
 %size(y1)
 %size(y2)
-c = AttractorAnalysis();
+c = DENMD();
 c.set_timeseries(1, y1);
 c.set_timeseries(2, y2);
 c.equalize_timeseries_edges()

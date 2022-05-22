@@ -1,5 +1,5 @@
-classdef AttractorAnalysis < handle
-    % AttractorAnalysis Class for visualizing and comparing attractors.
+classdef DENMD < handle
+    % DENMD Class for visualizing and comparing attractors.
     % This class is able to get two time-series, embed them in higher
     % dimensional attractors, and apply cross-mapping to infer causality
     % between them. There are functions for visualization, as well as tools
@@ -28,8 +28,8 @@ classdef AttractorAnalysis < handle
     end
     
     methods
-      function obj = AttractorAnalysis()
-          % Constructs an AttractorAnalysis object.
+      function obj = DENMD()
+          % Constructs an DENMD object.
           %
           % OBJ = AttractorAnalysis()
           return
