@@ -1,8 +1,7 @@
 # Delay Embedding and Nonlinear Mutual Dynamics (DENMD) Toolbox
-<!-- ![Model](assets/DENMD-logos_3.jpeg) -->
 
 <p align="center">
-<img src="https://github.com/ParhamP/DENMD/blob/main/assets/DENMD-logos_3.jpeg?raw=true">
+<img src="https://github.com/ParhamP/DENMD/blob/main/assets/DENMD-logo.jpeg?raw=true">
 </p>
 
 
