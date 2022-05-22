@@ -50,4 +50,4 @@ denmd.set_timeseries(2, y2, 'name', 'y2');
 % Visualize the time-series from within the object
 denmd.visualize_time_series();
 ```
-<img src="https://github.com/ParhamP/DENMD/blob/main/assets/vis_time_series.png?raw=true">
+<img src="https://github.com/ParhamP/DENMD/blob/main/assets/vis_time_series.png?raw=true" width="450" height="450">
