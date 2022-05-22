@@ -51,5 +51,5 @@ denmd.set_timeseries(2, y2, 'name', 'y2');
 denmd.visualize_time_series();
 ```
 <p align="center">
-<img src="https://github.com/ParhamP/DENMD/blob/main/assets/vis_time_series.png?raw=true" width="477" height="398">
+<img src="https://github.com/ParhamP/DENMD/blob/main/assets/vis_time_series_1.png?raw=true" width="477" height="398">
 </p>
