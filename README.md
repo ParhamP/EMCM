@@ -23,4 +23,12 @@ git clone https://github.com/ParhamP/DENMD.git
 
 2. Or simply "Download Zip" from Github's "Code" tab
 
+## Install
+
+In MATLAB:
+
+```
+addpath(genpath('AbsolutePathToToolbox'))
+```
+
 ## Example
