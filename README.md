@@ -1,6 +1,6 @@
 # Delay Embedding and Nonlinear Mutual Dynamics (DENMD) Toolbox
 <!-- ![Model](assets/new_logo.png) -->
-![Model](assets/DENMD-logos_2.jpeg)
+![Model](assets/DENMD-logos_3.jpeg)
 <!-- ![Model](assets/DENMD-logos_transparent.png)
 ![Model](assets/DENMD-logos_white.png)
 ![Model](assets/DENMD-logos_black.png) -->
