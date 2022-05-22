@@ -1,9 +1,10 @@
 # Delay Embedding and Nonlinear Mutual Dynamics (DENMD) Toolbox
-<!-- ![Model](assets/new_logo.png) -->
-![Model](assets/DENMD-logos_3.jpeg)
-<!-- ![Model](assets/DENMD-logos_transparent.png)
-![Model](assets/DENMD-logos_white.png)
-![Model](assets/DENMD-logos_black.png) -->
+<!-- ![Model](assets/DENMD-logos_3.jpeg) -->
+
+<p align="center">
+<img src="https://github.com/ParhamP/DENMD/blob/main/assets/DENMD-logos_3.jpeg?raw=true">
+</p>
+
 
 A toolbox for generating higher-dimensional manifolds of time-series data using delay embedding methods and measuring nonlinear mutual dynamics between manifolds using cross mapping techniques.
 
