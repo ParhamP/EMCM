@@ -14,5 +14,13 @@ We've employed dynamical systems approaches to compile a toolbox that:
 2. Parses linear and nonlinear dynamics
 3. Assays causal asymmetry in reciprocal interactions between correlated signals
 
-## Example
+## Download
 
+1. From a command line:
+```
+git clone https://github.com/ParhamP/DENMD.git
+```
+
+2. Or simply "Download Zip" from Github's "Code" tab
+
+## Example
