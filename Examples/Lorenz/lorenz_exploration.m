@@ -7,15 +7,17 @@ addpath('../../')
 %size(y1)
 %size(y2)
 c = DENMD();
-c.set_timeseries(1, y1);
-c.set_timeseries(2, y2);
+c.set_timeseries(1, y1, 'name', 'y1');
+c.set_timeseries(2, y2, 'name', 'y2');
+c.visualize_time_series();
 c.equalize_timeseries_edges()
 c.generate_single_attractor(1, 1, 30, 1, 4);
 c.generate_single_attractor(2, 1, 30, 1, 4);
 c.zscore_attractors()
-c.visualize_attractors_3d()
-c.visualize_single_attractor_3d(1)
+% c.visualize_attractors_3d()
+% c.visualize_single_attractor_3d(1)
 
+%{
 nonlinear_thresh_1 = c.estimate_nonlinear_threshold(1, 2);
 nonlinear_thresh_2 = c.estimate_nonlinear_threshold(2, 2);
 hit_range = 100;
@@ -27,8 +29,8 @@ c.generate_linear_dynamics(2, nonlinear_thresh_2, hit_range);
 c.generate_nonlinear_dynamics(2, nonlinear_thresh_2, hit_range);
 c.visualize_linear_to_nonlinear(2);
 
-scores = c.ccm()
-%{
+scores = c.ccm();
+
 [a, b, cc, d, e, f, g, h] = c.all_linear_and_nonlinear_ccm_scores();
 %scores = c.ccm();
 sc1 = scores(1);

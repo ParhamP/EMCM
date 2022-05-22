@@ -7,6 +7,8 @@ classdef DENMD < handle
     properties %(Access=private)
         x1;
         x2;
+        x1_name;
+        x2_name;
         Xm;
         Ym;
         Xm_linear;
@@ -35,14 +37,21 @@ classdef DENMD < handle
           return
       end
       
-      function set_timeseries(obj, num, x)
+      function set_timeseries(obj, num, x, varargin)
           % SET_TIMESERIES sets the NUMth time-series X.
           %
           % SET_TIMESERIES(NUM, X)
+          p = inputParser;
+          paramName = 'name';
+          defaultName = "x1";
+          addParameter(p,paramName,defaultName);
+          parse(p, varargin{:});
           if num == 1
               obj.x1 = x;
+              obj.x1_name = p.Results.name;
           elseif num == 2
               obj.x2 = x;
+              obj.x2_name = p.Results.name;
           else
               error("invalid timeseries number.");
           end
@@ -169,11 +178,11 @@ classdef DENMD < handle
           sgtitle('Time Series');
           subplot(2,1,1)
           plot(obj.x1);
-          title('x1');
+          title(obj.x1_name);
           
           subplot(2,1,2)
           plot(obj.x2);
-          title('x2');
+          title(obj.x2_name);
       end
       
       function visualize_delayed_timeseries(obj, num, tau, E)

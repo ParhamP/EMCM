@@ -33,6 +33,19 @@ addpath(genpath('AbsolutePathToToolbox'))
 
 ## Example
 
+The MATLAB file for this example can be found in "examples/lorenz folder".
+
 ```Matlab
+% Generate two time-series data
+[x1, y1, z1] = generate_lorenz(45, 10, 8/3, [0 1 1.05], [0 20], 0.000001);
+[x2, y2, z2] = generate_lorenz(28, 10, 8/3, [0 1 1.05], [0 30], 0.000001);
+
+%create a DENMD object
+denmd_object = DENMD();
+
+% Assign the time-series to the object
+denmd_object.set_timeseries(1, y1);
+denmd_object.set_timeseries(2, y2);
+
 
 ```
