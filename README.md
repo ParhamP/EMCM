@@ -70,16 +70,14 @@ denmd.generate_single_attractor(y1_attractor_num, delay_lag, embedding_dimension
 % Visualize the attractors in 3D
 denmd.visualize_attractors_3d();
 ```
-
 <p align="center">
-<img src="assets/vis_lorenz_attractors_wo_title.png?raw=true" width="717" height="712">
+<img src="assets/vis_lorenz_attractors_wo_title.png?raw=true" width="538" height="534">
 </p>
 
 ```Matlab
-% Calculate Convergent Cross Mapping (CCM) scores to infer causality between the two systems.
+% Calculate Convergent Cross Mapping (CCM) scores to infer causality between the two systems
 denmd.ccm('barPlot', true);
 ```
-
 <p align="center">
 <img src="assets/ccm_bar_plot.png?raw=true" width="560" height="420">
 </p>
