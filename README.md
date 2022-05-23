@@ -94,7 +94,12 @@ denmd.visualize_havok_attractor(y1_attractor_num, nonlinear_thresh, hit_range)
 <img src="assets/havok.png?raw=true" width="627" height="294">
 </p>
 
+## Collaborators
 
+- Parham Pourdavood, BA
+- Michael Jacob, MD, PhD
 
+## Acknowledgements
 
+This work was funed in part by Human Energy and a grant from the department of Veterans Affairs.
 
