@@ -11,7 +11,7 @@ y2_attractor_num = 2;
 % Assign the time-series to the object
 denmd.set_timeseries(y1_attractor_num, y1, 'name', 'y1');
 denmd.set_timeseries(y2_attractor_num, y2, 'name', 'y2');
-denmd.equalize_timeseries_edges()
+denmd.equalize_timeseries_edges();
 
 % Visualize the time-series from within the object
 denmd.visualize_time_series();
@@ -25,12 +25,13 @@ SVD_num_components = 4;
 % Generate attractors from time-series data using Eigen Time-Delay Embedding
 denmd.generate_single_attractor(y1_attractor_num, delay_lag, embedding_dimension, use_SVD, SVD_num_components);
 denmd.generate_single_attractor(y2_attractor_num, delay_lag, embedding_dimension, use_SVD, SVD_num_components);
+denmd.zscore_attractors();
 
 % Visualize the attractors in 3D
 denmd.visualize_attractors_3d();
 
 % Calculate Convergent Cross Mapping (CCM) scores to infer causality between the two systems
-denmd.ccm('barPlot', true);
+denmd.ccm('barPlot', true)
 
 % Parse linear and nonlinear dynamics
 std_from_mean = 2;

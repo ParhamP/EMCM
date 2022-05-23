@@ -50,6 +50,9 @@ y2_attractor_num = 2;
 denmd.set_timeseries(y1_attractor_num, y1, 'name', 'y1');
 denmd.set_timeseries(y2_attractor_num, y2, 'name', 'y2');
 
+% Equalize the size of time-series in case they're different
+denmd.equalize_timeseries_edges();
+
 % Visualize the time-series from within the object
 denmd.visualize_time_series();
 ```
