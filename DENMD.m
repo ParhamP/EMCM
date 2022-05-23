@@ -142,8 +142,8 @@ classdef DENMD < handle
           else
               X2 = X2(1:length(X1));
           end
-          obj.set_timeseries(1, X1);
-          obj.set_timeseries(2, X2);
+          obj.set_timeseries(1, X1, 'name', obj.x1_name);
+          obj.set_timeseries(2, X2, 'name', obj.x2_name);
       end
       
       function sizes(obj, include_linear_and_nonlinear)
@@ -887,6 +887,7 @@ classdef DENMD < handle
           end
           
           plot3(X(:, 1), X(:, 2), X(:, 3), 'k');
+          title(upper(obj.x1_name));
           hold on;
           
           if nargin > 1
@@ -899,6 +900,7 @@ classdef DENMD < handle
 
           subplot(2,1,2)
           plot3(Y(:, 1), Y(:, 2), Y(:, 3), 'k');
+          title(upper(obj.x2_name));
       end
       
       function similar_finds = find_similar_dynamics_points(obj, num, ...

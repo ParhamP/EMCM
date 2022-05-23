@@ -5,7 +5,7 @@
 </p>
 
 
-A toolbox for generating higher-dimensional manifolds of time-series data using delay embedding methods and measuring nonlinear mutual dynamics between them using cross mapping techniques.
+A toolbox for generating higher-dimensional attractors of time-series data using delay embedding methods and measuring nonlinear mutual dynamics between them using cross mapping techniques.
 
 ## Overview
 
@@ -33,7 +33,7 @@ addpath(genpath('AbsolutePathToToolbox'))
 
 ## Example
 
-The MATLAB file for this example can be found in "examples/lorenz folder".
+The MATLAB file for this example can be found in "examples/lorenz/" folder.
 
 ```Matlab
 % Generate two time-series data
@@ -52,4 +52,25 @@ denmd.visualize_time_series();
 ```
 <p align="center">
 <img src="https://github.com/ParhamP/DENMD/blob/main/assets/vis_time_series_2.png?raw=true" width="560" height="420">
+</p>
+
+```Matlab
+% Set delay embedding parameters
+y1_attractor_num = 1;
+y2_attractor_num = 2;
+delay_lag = 1;
+embedding_dimension = 30;
+use_SVD = 1;
+SVD_num_components = 4;
+
+% Generate attractors from time-series data using Eigen Time-Delay Embedding
+denmd.generate_single_attractor(y1_attractor_num, delay_lag, embedding_dimension, use_SVD, SVD_num_components);
+denmd.generate_single_attractor(y1_attractor_num, delay_lag, embedding_dimension, use_SVD, SVD_num_components);
+
+% Visualize the attractors in 3D
+denmd.visualize_attractors_3d();
+```
+
+<p align="center">
+<img src="assets/vis_lorenz_attractors.png?raw=true" width="560" height="420">
 </p>

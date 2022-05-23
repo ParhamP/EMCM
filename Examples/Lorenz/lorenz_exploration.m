@@ -14,7 +14,7 @@ c.equalize_timeseries_edges()
 c.generate_single_attractor(1, 1, 30, 1, 4);
 c.generate_single_attractor(2, 1, 30, 1, 4);
 c.zscore_attractors()
-% c.visualize_attractors_3d()
+c.visualize_attractors_3d()
 % c.visualize_single_attractor_3d(1)
 
 %{
