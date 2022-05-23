@@ -85,7 +85,6 @@ denmd.ccm('barPlot', true);
 
 ```Matlab
 % Parse linear and nonlinear dynamics
-y1_attractor_num = 1;
 std_from_mean = 2;
 hit_range = 100;
 nonlinear_threshold = denmd.estimate_nonlinear_threshold(y1_attractor_num, std_from_mean);

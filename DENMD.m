@@ -1217,37 +1217,6 @@ classdef DENMD < handle
           lag = p.Results.lag;
 
           [X, Y] = obj.lagged_attractor(obj.Xm, obj.Ym, lag);
-
-%           if nargin < 2
-%               X = obj.Xm;
-%               Y = obj.Ym;
-%               lag = 0;
-%           else
-%               if linear_or_not(1) == 1
-%                   X = obj.Xm_linear;
-%               elseif linear_or_not(1) == 2
-%                   X = obj.Xm_nonlinear;
-%               else
-%                   X = obj.Xm;
-%               end
-% 
-%               if linear_or_not(2) == 1
-%                   Y = obj.Ym_linear;
-%               elseif linear_or_not(2) == 2
-%                   Y = obj.Ym_nonlinear;
-%               else
-%                   Y = obj.Ym;
-%               end
-%           end
-% 
-%           if nargin == 1
-%               %num_neighbs = obj.E1; % it's r if havok is on.
-%               lag = 0;
-%           end
-%           
-%           if nargin == 3
-%               [X, Y] = obj.lagged_attractor(obj.Xm, obj.Ym, lag);
-%           end
           
           X_size = size(X);
           Y_size = size(Y);
@@ -1284,26 +1253,8 @@ classdef DENMD < handle
               x2_p(:, j2) = c2;
           end
           
-          %{
-          for j=1:dim1
-              a1 = reshape(X(n2, j), size(n2));
-              a2 = reshape(Y(n1, j), size(n1));
-              
-              b1 = a1 .* W2;
-              b2 = a2 .* W1;
-              c1 = sum(b1, 2);
-              c2 = sum(b2, 2);
-
-              x1_p(:, j) = c1;
-              x2_p(:, j) = c2;
-          end
-          %}
-          
           obj.x1_pred = x1_p;
           obj.x2_pred = x2_p;
-          
-          %dists1 = diag(pdist2(x1_p, X));
-          %dists2 = diag(pdist2(x2_p, Y));
 
           sc1 = zeros(dim1, 1);
           sc2 = zeros(dim2, 1);
@@ -1319,20 +1270,6 @@ classdef DENMD < handle
                corr2 = corrcoef(p2, Y(:, ii2));
                sc2(ii2) = corr2(1, 2);
           end
-          
-          %{
-
-          for ii=1:dim
-              p1 = x1_p(:,ii);
-              p2 = x2_p(:,ii);
-
-              corr1 = corrcoef(p1, X(:, ii));
-              corr2 = corrcoef(p2, Y(:, ii));
-              sc1(ii) = corr1(1, 2);
-              sc2(ii) = corr2(1, 2);
-          end
-          
-          %}
 
           SugiCorr = zeros(2, 1);
 
