@@ -82,5 +82,19 @@ denmd.ccm('barPlot', true);
 <img src="assets/ccm_bar_plot.png?raw=true" width="560" height="420">
 </p>
 
+```Matlab
+% Parse linear and nonlinear dynamics
+y1_attractor_num = 1;
+std_from_mean = 2;
+hit_range = 100;
+nonlinear_threshold = denmd.estimate_nonlinear_threshold(y1_attractor_num, std_from_mean);
+denmd.visualize_havok_attractor(y1_attractor_num, nonlinear_thresh, hit_range)
+```
+<p align="center">
+<img src="assets/havok.png?raw=true" width="627" height="294">
+</p>
+
+
+
 
 

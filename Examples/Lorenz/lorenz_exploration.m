@@ -18,12 +18,13 @@ c.visualize_attractors_3d()
 c.ccm("barPlot", true);
 % c.visualize_single_attractor_3d(1)
 
-%{
+
 nonlinear_thresh_1 = c.estimate_nonlinear_threshold(1, 2);
 nonlinear_thresh_2 = c.estimate_nonlinear_threshold(2, 2);
 hit_range = 100;
 c.visualize_havok_attractor(1, nonlinear_thresh_1, hit_range)
 
+%{
 c.generate_linear_dynamics(1, nonlinear_thresh_1, hit_range);
 c.generate_nonlinear_dynamics(1, nonlinear_thresh_1, hit_range);
 c.generate_linear_dynamics(2, nonlinear_thresh_2, hit_range);
