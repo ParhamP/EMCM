@@ -51,7 +51,7 @@ denmd.set_timeseries(2, y2, 'name', 'y2');
 denmd.visualize_time_series();
 ```
 <p align="center">
-<img src="https://github.com/ParhamP/DENMD/blob/main/assets/vis_time_series_2.png?raw=true" width="560" height="420">
+<img src="assets/vis_time_series_wo_title.png?raw=true" width="560" height="420">
 </p>
 
 ```Matlab
@@ -72,5 +72,17 @@ denmd.visualize_attractors_3d();
 ```
 
 <p align="center">
-<img src="assets/vis_lorenz_attractors.png?raw=true" width="717" height="712">
+<img src="assets/vis_lorenz_attractors_wo_title.png?raw=true" width="717" height="712">
 </p>
+
+```Matlab
+% Calculate Convergent Cross Mapping (CCM) scores to infer causality between the two systems.
+denmd.ccm('barPlot', true);
+```
+
+<p align="center">
+<img src="assets/ccm_bar_plot.png?raw=true" width="560" height="420">
+</p>
+
+
+

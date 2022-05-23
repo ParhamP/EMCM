@@ -175,13 +175,13 @@ classdef DENMD < handle
           %
           % VISUALIZE_TIME_SERIES()
           figure
-          sgtitle('Time Series');
+%           sgtitle('Time Series');
           subplot(2,1,1)
-          plot(obj.x1);
+          plot(obj.x1, 'k');
           title(obj.x1_name);
           
           subplot(2,1,2)
-          plot(obj.x2);
+          plot(obj.x2, 'k');
           title(obj.x2_name);
       end
       
@@ -873,7 +873,8 @@ classdef DENMD < handle
           % VISUALIZE_ATTRACTORS_3D(L_ARR)
           f = figure;
           f.Position = [300, 50, 560 * 1.6, 560 * 1.6];
-          sgtitle('Attractors');
+%           sgt = sgtitle('Attractors');
+          sgt.FontSize = 30;
           subplot(2,1,1)
           X = obj.Xm;
           Y = obj.Ym;
@@ -1029,7 +1030,12 @@ classdef DENMD < handle
       end
       
       function [X1_res, X2_res] = lagged_attractor(~, X1, X2, lag)
-          if lag >= 0
+          if lag == 0
+              X1_res = X1;
+              X2_res = X2;
+              return;
+          end
+          if lag > 0
               X1_lagged = X1(1 + lag:end, :);
               X2_corrected = X2(1:end-lag, :);
               X1_res = X1_lagged;
@@ -1183,7 +1189,7 @@ classdef DENMD < handle
       end
       
       
-       function SugiCorr = ccm(obj, linear_or_not, lag)
+       function SugiCorr = ccm(obj, varargin)
           % CCM Calculates Convergent Cross Mapping (CCM) scores using
           % NUM_NEIGHBS number of neighbors. LINEAR_OR_NOT is an array of
           % size two that indicates whether the first or the second
@@ -1197,36 +1203,51 @@ classdef DENMD < handle
           % CCM(NUM_NEIGHBS)
           %
           % CCM(NUM_NEIGHBS, LINEAR_OR_NOT)
-          if nargin < 2
-              X = obj.Xm;
-              Y = obj.Ym;
-              lag = 0;
-          else
-              if linear_or_not(1) == 1
-                  X = obj.Xm_linear;
-              elseif linear_or_not(1) == 2
-                  X = obj.Xm_nonlinear;
-              else
-                  X = obj.Xm;
-              end
 
-              if linear_or_not(2) == 1
-                  Y = obj.Ym_linear;
-              elseif linear_or_not(2) == 2
-                  Y = obj.Ym_nonlinear;
-              else
-                  Y = obj.Ym;
-              end
-          end
+          p = inputParser;
+          bar_param = 'barPlot';
+          bar_param_default = false;
+          lag_param = 'lag';
+          lag_param_default = 0;
+          addParameter(p, bar_param, bar_param_default);
+          addParameter(p, lag_param, lag_param_default);
 
-          if nargin == 1
-              %num_neighbs = obj.E1; % it's r if havok is on.
-              lag = 0;
-          end
-          
-          if nargin == 3
-              [X, Y] = obj.lagged_attractor(obj.Xm, obj.Ym, lag);
-          end
+          parse(p, varargin{:});
+          draw_bar_plot = p.Results.barPlot;
+          lag = p.Results.lag;
+
+          [X, Y] = obj.lagged_attractor(obj.Xm, obj.Ym, lag);
+
+%           if nargin < 2
+%               X = obj.Xm;
+%               Y = obj.Ym;
+%               lag = 0;
+%           else
+%               if linear_or_not(1) == 1
+%                   X = obj.Xm_linear;
+%               elseif linear_or_not(1) == 2
+%                   X = obj.Xm_nonlinear;
+%               else
+%                   X = obj.Xm;
+%               end
+% 
+%               if linear_or_not(2) == 1
+%                   Y = obj.Ym_linear;
+%               elseif linear_or_not(2) == 2
+%                   Y = obj.Ym_nonlinear;
+%               else
+%                   Y = obj.Ym;
+%               end
+%           end
+% 
+%           if nargin == 1
+%               %num_neighbs = obj.E1; % it's r if havok is on.
+%               lag = 0;
+%           end
+%           
+%           if nargin == 3
+%               [X, Y] = obj.lagged_attractor(obj.Xm, obj.Ym, lag);
+%           end
           
           X_size = size(X);
           Y_size = size(Y);
@@ -1317,7 +1338,15 @@ classdef DENMD < handle
 
           SugiCorr(1, 1) = mean(sc1);
           SugiCorr(2, 1) = mean(sc2);
-      end
+          
+          if draw_bar_plot == true
+              figure;
+              X = categorical({'Y1->Y2','Y2->Y1'});
+              X = reordercats(X, {'Y1->Y2','Y2->Y1'});
+              Y = [mean(sc1) mean(sc2)];
+              bar(X,Y);
+              title("Convergent Cross Mapping Scores (Causal Influence)");
+          end
       
       function [sc1_l_mean, sc1_nl_mean, sc2_l_mean, sc2_nl_mean] = ...
               linear_and_nonlinear_ccm_scores(obj)
@@ -1425,6 +1454,7 @@ classdef DENMD < handle
           sc2_self_nl_mean = mean(sc2_self_nl);
           sc2_other_l_mean = mean(sc2_other_l);
           sc2_other_nl_mean = mean(sc2_other_nl);
+          end
       end
     end
 end
