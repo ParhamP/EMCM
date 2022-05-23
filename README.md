@@ -72,5 +72,5 @@ denmd.visualize_attractors_3d();
 ```
 
 <p align="center">
-<img src="assets/vis_lorenz_attractors.png?raw=true" width="560" height="420">
+<img src="assets/vis_lorenz_attractors.png?raw=true" width="717" height="712">
 </p>
