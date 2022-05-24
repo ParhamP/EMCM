@@ -104,5 +104,5 @@ denmd.visualize_havok_attractor(y1_attractor_num, nonlinear_threshold, hit_range
 
 ## Acknowledgements
 
-This work was funed in part by Human Energy and a grant from the department of Veterans Affairs.
+This work was funded in part by [Human Energy](https://humanenergy.io/) and a grant from the department of Veterans Affairs.
 
