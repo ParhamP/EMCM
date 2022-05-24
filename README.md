@@ -5,14 +5,14 @@
 </p>
 
 
-A toolbox for generating higher-dimensional attractors of time-series data using delay embedding methods and measuring nonlinear mutual dynamics between them using cross mapping techniques.
+A toolbox for generating higher-dimensional attractors of time-series data using Time-Delay Embedding methods and measuring nonlinear mutual dynamics between them using cross mapping techniques.
 
 ## Overview
 
 We've employed dynamical systems approaches to compile a toolbox that:
-1. Performs dynamical embedding of a time series to assay complexity and determine meaningful dimensions of activity
-2. Parses linear and nonlinear dynamics
-3. Assays causal asymmetry in reciprocal interactions between correlated signals
+1. Performs Eigen Time-Delay (ETD) embedding of a time series to assay complexity and determine meaningful dimensions of activity (Broomhead, 1989).
+2. Parses linear and nonlinear dynamics (Brunton, 2017).
+3. Assays causal asymmetry in reciprocal interactions between correlated signals (Sugihara, 2012).
 
 ## Download
 
@@ -97,6 +97,7 @@ denmd.visualize_havok_attractor(y1_attractor_num, nonlinear_threshold, hit_range
 <img src="assets/havok.png?raw=true" width="627" height="294">
 </p>
 
+
 ## Collaborators
 
 - Parham Pourdavood, BA
@@ -105,4 +106,9 @@ denmd.visualize_havok_attractor(y1_attractor_num, nonlinear_threshold, hit_range
 ## Acknowledgements
 
 This work was funded in part by [Human Energy](https://humanenergy.io/) and a grant from the department of Veterans Affairs.
+
+## References
+1. Broomhead D. S. and Jones Roger (1989). Time-series analysisProc. R. Soc. Lond. A423103–121.
+2. Brunton, S. L., Brunton, B. W., Proctor, J. L., Kaiser, E., & Nathan Kutz, J. (2017). Chaos as an intermittently forced linear system. Nature Communications, 8(1).
+3. Sugihara, G., May, R., Ye, H., Hsieh, C. H., Deyle, E., Fogarty, M., & Munch, S. (2012). Detecting causality in complex ecosystems. Science, 338(6106), 496–500.
 
