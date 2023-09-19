@@ -469,6 +469,46 @@ classdef DENMD < handle
                 r_est = length(sigs(sigs>thresh));
           end
       end
+
+      function PCA_on_already_attractor(obj, num, thresh)
+          if num == 1
+              X = obj.Xm;
+              dimension_weights = {};
+              [coeff,Ux,latent,ts] = pca(X);
+          elseif num == 2
+              Y = obj.Ym;
+              dimension_weights = {};
+              [coeff,Uy,latent,ts] = pca(Y);
+          end
+          total_var_sum = sum(latent);
+          for i=1:length(latent)
+              sofar_var_sum = sum(latent(1:i));
+              var_ratio = sofar_var_sum / total_var_sum;
+              this_component_ratio = latent(i) / total_var_sum;
+              if var_ratio >=thresh
+                  r_est = i;
+                  dimension_weights{end + 1} = this_component_ratio;
+                  break
+              end
+              dimension_weights{end + 1} = this_component_ratio;
+          end
+          assert(length(dimension_weights) == r_est, 'r and dimension weights have differnet lengths');
+%           dimension_weights_scaled = mat2gray(cell2mat(dimension_weights));
+          dimension_weights_scaled = dimension_weights;
+
+          if num == 1
+              X = Ux(1:end,1:r_est);
+              obj.r1 = r_est;
+%               obj.Xm_dimension_weights = dimension_weights_scaled;
+              obj.Xm = X;
+          elseif num == 2
+              Y = Uy(1:end,1:r_est);
+              obj.r2 = r_est;
+%               obj.Ym_dimension_weights = dimension_weights_scaled;
+              obj.Ym = Y;
+          end
+      end
+
       
       function r_est = estimate_r(obj, num, tau, E, thresh)
           if num == 1
