@@ -71,7 +71,7 @@ emcm.generate_single_attractor(gamma_number, delay_lag, embedding_dimension);
 emcm.visualize_attractors_3d();
 ```
 <p align="center">
-<img src="assets/pre_etd_attractors.png?raw=true" width="627" height="427">
+<img src="assets/pre_etd_attractors.png?raw=true" width="427" height="627">
 </p>
 
 ```Matlab
@@ -87,7 +87,7 @@ c1.apply_pca_and_set_r(gamma_number, 'threshold_method', 'one');
 emcm.visualize_attractors_3d();
 ```
 <p align="center">
-<img src="assets/attractors.png?raw=true" width="627" height="427">
+<img src="assets/attractors.png?raw=true" width="427" height="627">
 </p>
 
 ```Matlab
