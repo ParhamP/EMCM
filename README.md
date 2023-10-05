@@ -10,7 +10,7 @@ EMCM is a MATLAB toolbox for generating high-dimensional manifolds from time-ser
 ## Overview
 
 This toolbox can:
-1. Perform Eigen Time-Delay (ETD) embedding of a time series to generate high-dimensional manifolds
+1. Perform Eigen Time-Delay (ETD) embedding of a time series to generate high-dimensional manifolds (Brunton, 2017)
 2. Use the eigenvalue statistics to assay complexity and capture meaningful dimensions of activity.
 3. Infer shared dynamics between ETD Manifolds Using Sugihara's Convergent Cross Mapping (Sugihara, 2012).
 
@@ -91,36 +91,22 @@ emcm.visualize_attractors_3d();
 </p>
 
 ```Matlab
-% Calculate Convergent Cross Mapping (CCM) scores to infer causality between the two systems
-denmd.ccm('barPlot', true);
+% Calculate Convergent Cross Mapping (CCM) scores to infer causality between the two systems.
+% The 'weigh_by_eigens' option will weigh each dimension's correlation by its eigenvalue.
+emcm.ccm('weigh_by_eigens', weigh_dimensions, 'barPlot', true);
 ```
 <p align="center">
-<img src="assets/ccm_bar_plot.png?raw=true" width="560" height="420">
-</p>
-
-```Matlab
-% Parse linear and nonlinear dynamics
-std_from_mean = 2;
-hit_range = 100;
-nonlinear_threshold = denmd.estimate_nonlinear_threshold(y1_attractor_num, std_from_mean);
-denmd.visualize_havok_attractor(y1_attractor_num, nonlinear_threshold, hit_range)
-```
-<p align="center">
-<img src="assets/havok.png?raw=true" width="627" height="294">
+<img src="assets/barplot.png?raw=true" width="560" height="420">
 </p>
 
 
 ## Collaborators
 
-- Parham Pourdavood, BA
+- Parham Pourdavood
 - Michael Jacob, MD, PhD
 
-## Acknowledgements
-
-This work was funded in part by [Human Energy](https://humanenergy.io/) and a grant from the department of Veterans Affairs.
 
 ## References
-1. Broomhead D. S. and Jones Roger (1989). Time-series analysisProc. R. Soc. Lond. A423103–121.
-2. Brunton, S. L., Brunton, B. W., Proctor, J. L., Kaiser, E., & Nathan Kutz, J. (2017). Chaos as an intermittently forced linear system. Nature Communications, 8(1).
-3. Sugihara, G., May, R., Ye, H., Hsieh, C. H., Deyle, E., Fogarty, M., & Munch, S. (2012). Detecting causality in complex ecosystems. Science, 338(6106), 496–500.
+1. Brunton, S. L., Brunton, B. W., Proctor, J. L., Kaiser, E., & Nathan Kutz, J. (2017). Chaos as an intermittently forced linear system. Nature Communications, 8(1).
+2. Sugihara, G., May, R., Ye, H., Hsieh, C. H., Deyle, E., Fogarty, M., & Munch, S. (2012). Detecting causality in complex ecosystems. Science, 338(6106), 496–500.
 
