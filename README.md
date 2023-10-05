@@ -1,24 +1,24 @@
-# Delay Embedding and Nonlinear Mutual Dynamics (DENMD) Toolbox
+# Eigen Manifold Cross Mapping (EMCM) Toolbox
 
-<p align="center">
+<!-- <p align="center">
 <img src="https://github.com/ParhamP/DENMD/blob/main/assets/DENMD-logos.jpeg?raw=true" width="305" height="305">
-</p>
+</p> -->
 
 
-A toolbox for generating higher-dimensional attractors of time-series data using Time-Delay Embedding methods and measuring nonlinear mutual dynamics between them using cross mapping techniques.
+EMCM is a MATLAB toolbox for generating high-dimensional manifolds from time-series data using Eigen-Time-Delay Embedding and measuring their shared dynamics using Cross Mapping techniques. 
 
 ## Overview
 
-We've employed dynamical systems approaches to compile a toolbox that:
-1. Performs Eigen Time-Delay (ETD) embedding of a time series to assay complexity and determine meaningful dimensions of activity (Broomhead, 1989).
-2. Parses linear and nonlinear dynamics (Brunton, 2017).
-3. Assays causal asymmetry in reciprocal interactions between correlated signals (Sugihara, 2012).
+This toolbox can:
+1. Perform Eigen Time-Delay (ETD) embedding of a time series to generate high-dimensional manifolds
+2. Use the eigen-manifold to assay complexity that capture meaningful dimensions of activity.
+3. Infer shared dynamics between ETD Manifolds Using Sugihara's Convergent Cross Mapping (Sugihara, 2012).
 
 ## Download
 
 1. In the command line:
 ```
-git clone https://github.com/ParhamP/DENMD.git
+git clone https://github.com/ParhamP/EMCM.git
 ```
 
 2. Or simply "Download Zip" from Github's "Code" tab
@@ -33,49 +33,60 @@ addpath(genpath('AbsolutePathToToolbox'))
 
 ## Example
 
-The MATLAB file for this example can be found in "examples/lorenz/" folder.
+The MATLAB file for this example can be found in "examples/eeg_example/" folder.
 
 ```Matlab
-% Generate two time-series data
-[x1, y1, z1] = generate_lorenz(45, 10, 8/3, [0 1 1.05], [0 20], 0.000001);
-[x2, y2, z2] = generate_lorenz(28, 10, 8/3, [0 1 1.05], [0 30], 0.000001);
+% Load two EEG time-series data
+alpha_eeg = load('data/alpha_eeg.mat').first_eeg;
+gamma_eeg = load('data/gamma_eeg.mat').second_eeg;
 
-%create a DENMD object
-denmd = DENMD();
 
-y1_attractor_num = 1;
-y2_attractor_num = 2;
+%create an EMCM object
+emcm = EMCM();
+
+alpha_number = 1;
+gamma_number = 2;
 
 % Assign the time-series to the object
-denmd.set_timeseries(y1_attractor_num, y1, 'name', 'y1');
-denmd.set_timeseries(y2_attractor_num, y2, 'name', 'y2');
-
-% Equalize the size of time-series in case they're different
-denmd.equalize_timeseries_edges();
+emcm.set_timeseries(alpha_number, alpha_eeg, 'name', 'Alpha');
+emcm.set_timeseries(gamma_number, gamma_eeg, 'name', 'Gamma');
 
 % Visualize the time-series from within the object
 denmd.visualize_time_series();
 ```
 <p align="center">
-<img src="assets/vis_time_series_wo_title.png?raw=true" width="560" height="420">
+<img src="assets/timeseries.png?raw=true" width="560" height="420">
 </p>
 
 ```Matlab
-% Set delay embedding parameters
+% Set the delay embedding parameters
 delay_lag = 1;
-embedding_dimension = 30;
-use_SVD = 1;
-SVD_num_components = 4;
+embedding_dimension = 60;
 
-% Generate attractors from time-series data using Eigen Time-Delay Embedding
-denmd.generate_single_attractor(y1_attractor_num, delay_lag, embedding_dimension, use_SVD, SVD_num_components);
-denmd.generate_single_attractor(y2_attractor_num, delay_lag, embedding_dimension, use_SVD, SVD_num_components);
+% First, generate attractors from time-series data using traditional time-delay-embedding
+emcm.generate_single_attractor(alpha_number, delay_lag, embedding_dimension);
+emcm.generate_single_attractor(gamma_number, delay_lag, embedding_dimension);
 
 % Visualize the attractors in 3D
-denmd.visualize_attractors_3d();
+emcm.visualize_attractors_3d();
 ```
 <p align="center">
-<img src="assets/vis_lorenz_attractors_wo_title.png?raw=true" width="627" height="623">
+<img src="assets/pre_etd_attractors.png?raw=true" width="627" height="623">
+</p>
+
+```Matlab
+% Apply PCA to get Eigen-Time_Delay Attractors.
+% The threshold method determines the number of components to keep. The threhold method of 'one' would retain all the components with eigenvalue greater than 1. 
+
+c1.apply_pca_and_set_r(alpha_number, 'threshold_method', 'one');
+c1.apply_pca_and_set_r(gamma_number, 'threshold_method', 'one');
+
+
+% Visualize the attractors in 3D
+emcm.visualize_attractors_3d();
+```
+<p align="center">
+<img src="assets/attractors.png?raw=true" width="627" height="623">
 </p>
 
 ```Matlab

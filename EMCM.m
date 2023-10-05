@@ -779,7 +779,7 @@ classdef EMCM < handle
           r_est = length(latent);
       end
       
-      function generate_single_attractor(obj, num, tau, E, use_svd, r)
+      function generate_single_attractor(obj, num, tau, E)
           %addpath('./HAVOK/utils');
           % GENERATE_SINGLE_ATTRACTOR Generates the NUMth attractor with
           % tau of TAU and dimension of E. Binary USE_SVD indicates whether
@@ -787,25 +787,13 @@ classdef EMCM < handle
           % applied, the method picks R components of U. 
           if num == 1
               obj.E1 = E;
-              obj.r1 = r;
               x = obj.x1;
               X = obj.embeder(x, tau, E);
-              if use_svd==1
-                [Ux,~,~] = svd(X,'econ');
-                X = Ux(1:end,1:r);
-                obj.E1 = r;
-              end
               obj.Xm = X;
           elseif num == 2
               obj.E2 = E;
-              obj.r2 = r;
               y = obj.x2;
               Y = obj.embeder(y, tau, E);
-              if use_svd==1
-                [Uy,~,~] = svd(Y,'econ');
-                Y = Uy(1:end,1:r);
-                obj.E2 = r;
-              end
               obj.Ym = Y;
           end
       end
