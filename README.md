@@ -51,7 +51,7 @@ emcm.set_timeseries(alpha_number, alpha_eeg, 'name', 'Alpha');
 emcm.set_timeseries(gamma_number, gamma_eeg, 'name', 'Gamma');
 
 % Visualize the time-series from within the object
-denmd.visualize_time_series();
+emcm.visualize_time_series();
 ```
 <p align="center">
 <img src="assets/timeseries.png?raw=true" width="560" height="420">
