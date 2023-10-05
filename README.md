@@ -11,7 +11,7 @@ EMCM is a MATLAB toolbox for generating high-dimensional manifolds from time-ser
 
 This toolbox can:
 1. Perform Eigen Time-Delay (ETD) embedding of a time series to generate high-dimensional manifolds
-2. Use the eigen-manifold to assay complexity that capture meaningful dimensions of activity.
+2. Use the eigenvalue statistics to assay complexity and capture meaningful dimensions of activity.
 3. Infer shared dynamics between ETD Manifolds Using Sugihara's Convergent Cross Mapping (Sugihara, 2012).
 
 ## Download
@@ -71,12 +71,13 @@ emcm.generate_single_attractor(gamma_number, delay_lag, embedding_dimension);
 emcm.visualize_attractors_3d();
 ```
 <p align="center">
-<img src="assets/pre_etd_attractors.png?raw=true" width="627" height="623">
+<img src="assets/pre_etd_attractors.png?raw=true" width="627" height="427">
 </p>
 
 ```Matlab
 % Apply PCA to get Eigen-Time_Delay Attractors.
-% The threshold method determines the number of components to keep. The threhold method of 'one' would retain all the components with eigenvalue greater than 1. 
+% The threshold method determines the number of components to keep.
+% The threhold method of 'one' would retain all the components with eigenvalue greater than 1. 
 
 c1.apply_pca_and_set_r(alpha_number, 'threshold_method', 'one');
 c1.apply_pca_and_set_r(gamma_number, 'threshold_method', 'one');
@@ -86,7 +87,7 @@ c1.apply_pca_and_set_r(gamma_number, 'threshold_method', 'one');
 emcm.visualize_attractors_3d();
 ```
 <p align="center">
-<img src="assets/attractors.png?raw=true" width="627" height="623">
+<img src="assets/attractors.png?raw=true" width="627" height="427">
 </p>
 
 ```Matlab
