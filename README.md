@@ -7,10 +7,6 @@
 
 EMCM is a MATLAB toolbox for generating high-dimensional manifolds from time-series data using Eigen-Time-Delay Embedding and measuring their shared dynamics using Cross Mapping techniques.
 
-<p align="center">
-<img src="assets/header_img.png?raw=true" width="560" height="420">
-</p>
-
 
 ## Overview
 
