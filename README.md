@@ -109,3 +109,6 @@ emcm.ccm('weigh_by_eigens', weigh_dimensions, 'barPlot', true);
 1. Brunton, S. L., Brunton, B. W., Proctor, J. L., Kaiser, E., & Nathan Kutz, J. (2017). Chaos as an intermittently forced linear system. Nature Communications, 8(1).
 2. Sugihara, G., May, R., Ye, H., Hsieh, C. H., Deyle, E., Fogarty, M., & Munch, S. (2012). Detecting causality in complex ecosystems. Science, 338(6106), 496–500.
 
+## Acknowledgement
+This work was supported by grants from the Department of Veterans Affairs VA (IK1CX002089 and IK2CX002457 to MSJ)
+
