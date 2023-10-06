@@ -40,6 +40,6 @@ c1.apply_pca_and_set_r(gamma_number, 'threshold_method', 'one');
 % Visualize the attractors in 3D
 emcm.visualize_attractors_3d();
 
-% Calculate Convergent Cross Mapping (CCM) scores to infer causality between the two systems.
+% Calculate Cross Mapping scores to infer shared dynamics between the two manifolds.
 % The 'weigh_by_eigens' option will weigh each dimension's correlation by its eigenvalue.
 emcm.ccm('weigh_by_eigens', weigh_dimensions, 'barPlot', true);
