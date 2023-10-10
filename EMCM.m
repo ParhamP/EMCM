@@ -1785,7 +1785,6 @@ classdef EMCM < handle
                sc2(ii2) = corr2(1, 2);
           end
 
-          SugiCorr = zeros(2, 1);
           
           obj.corrs_1 = sc1;
           obj.corrs_2 = sc2;
