@@ -872,6 +872,36 @@ classdef EMCM < handle
               obj.Ym = arr;
           end
       end
+
+  function [r1, r2] = complexities(obj, varargin)
+          p = inputParser;
+          bar_param = 'barPlot';
+          bar_param_default = false;
+          addParameter(p, bar_param, bar_param_default);
+          disp(varargin)
+          disp(p)
+          parse(p, varargin{:});
+          draw_bar_plot = p.Results.barPlot;
+ 
+          
+          r1 = obj.r1;
+          r2 = obj.r2;
+          
+          if draw_bar_plot == true
+              figure;
+              categs = {[obj.x1_name ' Complexity'],...
+                  [obj.x2_name 'Complexity']};
+              X = categorical(categs);
+              X = reordercats(X, categs);
+              Y = [r1 r2];
+              bar(X,Y, 'k');
+              ylabel('Number of Retained Components');
+%               title("Complexities");
+          end
+          
+      end
+
+
       
       function y = linear_reconstruction(obj, num)
           if num == 1

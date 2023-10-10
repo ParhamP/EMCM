@@ -79,8 +79,8 @@ emcm.visualize_attractors_3d();
 % The threshold method determines the number of components to keep.
 % The threhold method of 'one' would retain all the components with eigenvalue greater than 1. 
 
-c1.apply_pca_and_set_r(alpha_number, 'threshold_method', 'one');
-c1.apply_pca_and_set_r(gamma_number, 'threshold_method', 'one');
+emcm.apply_pca_and_set_r(alpha_number, 'threshold_method', 'one');
+emcm.apply_pca_and_set_r(gamma_number, 'threshold_method', 'one');
 
 
 % Visualize the attractors in 3D
@@ -91,9 +91,18 @@ emcm.visualize_attractors_3d();
 </p>
 
 ```Matlab
+% Access the complexity measures for eigen attractors (i.e., their number of retained components)
+[alpha_complexity, gamma_complexity] = emcm.complexities('barPlot', true)
+
+```
+<p align="center">
+<img src="assets/complexities.png?raw=true" width="560" height="420">
+</p>
+
+```Matlab
 % Calculate Convergent Cross Mapping (CCM) scores to infer shared dynamics between the two manifolds.
 % The 'weigh_by_eigens' option will weigh each dimension's correlation by its eigenvalue.
-emcm.ccm('weigh_by_eigens', weigh_dimensions, 'barPlot', true);
+scores = emcm.ccm('weigh_by_eigens', weigh_dimensions, 'barPlot', true);
 ```
 <p align="center">
 <img src="assets/barplot.png?raw=true" width="560" height="420">
