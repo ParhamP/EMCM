@@ -890,7 +890,7 @@ classdef EMCM < handle
           if draw_bar_plot == true
               figure;
               categs = {[obj.x1_name ' Complexity'],...
-                  [obj.x2_name 'Complexity']};
+                  [obj.x2_name ' Complexity']};
               X = categorical(categs);
               X = reordercats(X, categs);
               Y = [r1 r2];
