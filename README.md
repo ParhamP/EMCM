@@ -100,8 +100,7 @@ emcm.visualize_attractors_3d();
 </p>
 
 ```Matlab
-% Calculate Convergent Cross Mapping (CCM) scores to infer shared dynamics between
-% the two manifolds.
+% Calculate Convergent Cross Mapping (CCM) scores to infer shared dynamics between the two manifolds.
 % The 'weigh_by_eigens' option will weigh each dimension's correlation by its eigenvalue.
 [alpha_precits_gamma_score, gamma_predicts_alpha_score] = emcm.ccm('weigh_by_eigens', true, 'barPlot', true);
 ```
