@@ -41,8 +41,8 @@ emcm.apply_pca_and_set_r(gamma_number, 'threshold_method', 'one');
 emcm.visualize_attractors_3d();
 
 % Access the complexity measures for eigen attractors (i.e., their number of retained components)
-[alpha_complexity, gamma_complexity] = emcm.complexities('barPlot', true)
+[alpha_complexity, gamma_complexity] = emcm.complexities('barPlot', true);
 
 % Calculate Cross Mapping scores to infer shared dynamics between the two manifolds.
 % The 'weigh_by_eigens' option will weigh each dimension's correlation by its eigenvalue.
-[alpha_precits_gamma_score, gamma_predicts_alpha_score] = emcm.ccm('weigh_by_eigens', weigh_dimensions, 'barPlot', true);
+[alpha_precits_gamma_score, gamma_predicts_alpha_score] = emcm.ccm('weigh_by_eigens', true, 'barPlot', true);
