@@ -1792,11 +1792,11 @@ classdef EMCM < handle
           if use_dimension_weights
               weights_X = obj.Xm_latents;
               weights_Y = obj.Ym_latents;
-              x1_x2_corr = wmean(sc1, weights_X);
-              x2_x1_corr = wmean(sc2, weights_Y);
+              x1_x2_corr = wmean(sc2, weights_Y);
+              x2_x1_corr = wmean(sc1, weights_X);
           else
-              x1_x2_corr = mean(sc1);
-              x2_x1_corr = mean(sc2);
+              x1_x2_corr = mean(sc2);
+              x2_x1_corr = mean(sc1);
           end
           
           if draw_bar_plot == true
