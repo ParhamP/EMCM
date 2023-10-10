@@ -1678,7 +1678,7 @@ classdef EMCM < handle
       end
       
       
-       function SugiCorr = ccm(obj, varargin)
+       function [x1_x2_corr, x2_x1_corr] = ccm(obj, varargin)
           % CCM Calculates Convergent Cross Mapping (CCM) scores using
           % NUM_NEIGHBS number of neighbors. LINEAR_OR_NOT is an array of
           % size two that indicates whether the first or the second
@@ -1793,11 +1793,11 @@ classdef EMCM < handle
           if use_dimension_weights
               weights_X = obj.Xm_latents;
               weights_Y = obj.Ym_latents;
-              SugiCorr(1, 1) = wmean(sc1, weights_X);
-              SugiCorr(2, 1) = wmean(sc2, weights_Y);
+              x1_x2_corr = wmean(sc1, weights_X);
+              x2_x1_corr = wmean(sc2, weights_Y);
           else
-              SugiCorr(1, 1) = mean(sc1);
-              SugiCorr(2, 1) = mean(sc2); 
+              x1_x2_corr = mean(sc1);
+              x2_x1_corr = mean(sc2);
           end
           
           if draw_bar_plot == true
