@@ -2,7 +2,7 @@ classdef EMCM < handle
     % EMCM (Eigen Manifold Cross Mapping) Class for eigen time delaying
     % time-series as high dimensional manifolds and assessing how well
     % they predict each other.
-    % This class is able to get two time-series, embed them in higher
+    % This class is able to get two time-series, embed them in higher-
     % dimensional attractors, and apply cross-mapping. There are functions
     % for visualization, as well as tools for estimating relevant
     % parameters. 
